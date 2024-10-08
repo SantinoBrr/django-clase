@@ -8,7 +8,7 @@ def mi_vista(request):
     return HttpResponse("Hola soy la vista")
 
 def inicio(request):
-    return HttpResponse('<h1> Soy la pantalla de inicio </h1>')
+    return render(request,'inicio/index.html')
 
 def vista_datos1(request, nombre):
     nombre_mayuscula = nombre.upper()
@@ -27,10 +27,10 @@ def primer_template(request):
     # render_template = template.render(datos)
     
     
-    return render(request, "primer-template.html", datos)
+    return render(request, "inicio/primer-template.html", datos)
 
 
 def crear_auto(request, marca, modelo, anio):
     auto = Auto(marca=marca , modelo=modelo ,anio= anio) 
     auto.save()
-    return render(request,"crear_auto.html", {'auto':auto})
+    return render(request,"inicio/crear_auto.html", {'auto':auto})
